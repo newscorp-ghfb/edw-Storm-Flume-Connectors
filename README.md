@@ -10,22 +10,75 @@ Class: com.storm.flume.spout.FlumeSourceSpout
 
 following describes various properties supported
 
-property	            default value	           			description
------------                 ----------------------                      ---------------------------------
-flumePropertyPrefix		flume-agent  				Property is used to identify flume related properties for the spout from the Conf object. 
-                             		           			use the set method to change the default.
-batch-size			100	 
-source.type			--					flume source type. Avro is recommended
-source.bind			--					hostname or IP where flume source is running. value 0.0.0.0 is recommended
-source.port			--					port at which flume source needs to be started
-channel.type			--					flume channel type to be used. memory or file is supported
-channel.capacity		100 for memory       			The max number of events stored in the channel
-                        	1000000 for file	
-channel.transactionCapacity	100 for memory
-                                1000 for file       			The max number of events stored in the channel per transaction
-channel.checkpointDir		~/.flume/file-channel/checkpoint	 only relevant for file channel. The directory where checkpoint file will be stored
-channel.dataDirs		~/.flume/file-channel/data		 only relevant for file channel. The directory where log files will be stored
-
+<table>
+  <tbody>
+    <tr>
+      <th>property</th>
+      <th>default value</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>flumePropertyPrefix</td>
+      <td>flume-agent</td>
+      <td>
+        <p>this property is used to find the flume related properties from the config file or Conf object.</p>
+        <p>use the set method to change the default.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>batch-size</td>
+      <td>100</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td colspan="1">source.type</td>
+      <td colspan="1">--</td>
+      <td colspan="1">flume source type. Avro is recommended</td>
+    </tr>
+    <tr>
+      <td colspan="1">source.bind</td>
+      <td colspan="1">--</td>
+      <td colspan="1">hostname or IP where flume source is running. value 0.0.0.0 is recommended</td>
+    </tr>
+    <tr>
+      <td colspan="1">source.port</td>
+      <td colspan="1">--</td>
+      <td colspan="1">port at which flume source needs to be started</td>
+    </tr>
+    <tr>
+      <td colspan="1">channel.type</td>
+      <td colspan="1">--</td>
+      <td colspan="1">flume channel type to be used. memory or file is supported</td>
+    </tr>
+    <tr>
+      <td colspan="1">channel.capacity</td>
+      <td colspan="1">
+        <p>100 for memory</p>
+        <p>1000000 for file</p>
+      </td>
+      <td colspan="1">The max number of events stored in the channel</td>
+    </tr>
+    <tr>
+      <td colspan="1">channel.transactionCapacity</td>
+      <td colspan="1">
+        <p>100 for memory</p>
+        <p>1000 for file</p>
+      </td>
+      <td colspan="1">The max number of events stored in the channel per transaction</td>
+    </tr>
+    <tr>
+      <td colspan="1">channel.checkpointDir</td>
+      <td colspan="1">~/.flume/file-channel/checkpoint</td>
+      <td colspan="1"> <strong>only relevant for file channel</strong>. The directory where checkpoint file will be stored</td>
+    </tr>
+    <tr>
+      <td colspan="1">channel.dataDirs</td>
+      <td colspan="1">~/.flume/file-channel/data</td>
+      <td colspan="1">
+        <strong>only relevant for file channel</strong>. The directory where log files will be stored</td>
+    </tr>
+  </tbody>
+</table>
 
 For additional channel properties refer:
 http://flume.apache.org/FlumeUserGuide.html#file-channel
@@ -58,12 +111,31 @@ Class:com.storm.flume.bolt.AvroSinkBolt
 
 AvroSinkBolt has been created as a bolt to connect the storm to flume agents or flume sinks.
 
-property		default				description
-------------            ------------               ------------------------
-flumePropertyPrefix	flume-avro-forward	 
-client.type		--			DEFAULT - NettyAvroRpcClient will be used
-						DEFAULT_FAILOVER - FailoverRpcClient will be used
-						DEFAULT_LOADBALANCE - LoadBalancingRpcClient will be used
+<table>
+  <tbody>
+    <tr>
+      <th>property</th>
+      <th>default</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>flumePropertyPrefix</td>
+      <td>flume-avro-forward</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>client.type</td>
+      <td>
+        <pre>--</pre>
+      </td>
+      <td>
+        <pre>DEFAULT - NettyAvroRpcClient will be used</pre>
+        <pre>DEFAULT_FAILOVER - FailoverRpcClient will be used</pre>
+        <pre>DEFAULT_LOADBALANCE - LoadBalancingRpcClient will be used</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 Examples:
 1) #Bolt to forward messages to flume agents with round_robin load balancing policy
