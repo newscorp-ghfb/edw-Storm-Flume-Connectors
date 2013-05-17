@@ -3,12 +3,12 @@ edw-Storm-Flume-Connectors
 
 Expedia Storm extension to receive messages from Flume
 
-Flume Storm connector/Flume's Storm Sink/Storm Spout as Flume Source
+Storm Spout as Flume Source
 -------------------------------------------------------------
 
 Class: com.storm.flume.spout.FlumeSourceSpout
 
-following describes various properties supported
+Following describes various properties supported in the spout
 
 <table>
   <tbody>
@@ -38,7 +38,7 @@ following describes various properties supported
     <tr>
       <td colspan="1">source.bind</td>
       <td colspan="1">--</td>
-      <td colspan="1">hostname or IP where flume source is running. value 0.0.0.0 is recommended</td>
+      <td colspan="1">hostname or IP where flume source is running. e.g 0.0.0.0</td>
     </tr>
     <tr>
       <td colspan="1">source.port</td>
@@ -80,28 +80,28 @@ following describes various properties supported
   </tbody>
 </table>
 
-For additional channel properties refer:
+<p>For additional channel properties refer:</p>
 http://flume.apache.org/FlumeUserGuide.html#file-channel
 http://flume.apache.org/FlumeUserGuide.html#memory-channel
 
 
-Example configuration:
+<p>Example configuration:</p>
 1) # Example for avro source and memory based channel in storm
-flume-agent.channel.type=memory
-flume-agent.channel.capacity=2000
+flume-agent.channel.type=memory <br/>
+flume-agent.channel.capacity=2000 <br/>
 
-flume-agent.source.type=avro
-flume-agent.source.bind=0.0.0.0
-flume-agent.source.port=10001
+flume-agent.source.type=avro <br/>
+flume-agent.source.bind=0.0.0.0 <br/>
+flume-agent.source.port=10001 <br/>
 
-2)# Example for avro source and File based channel in storm
-flume-agent.channel.type=file
-flume-agent.channel.checkpointDir=/var/storm_flume/chk
-flume-agent.channel.dataDirs=/var/storm_flume/data
+2)# Example for avro source and File based channel in storm <br/>
+flume-agent.channel.type=file <br/>
+flume-agent.channel.checkpointDir=/var/storm_flume/chk <br/>
+flume-agent.channel.dataDirs=/var/storm_flume/data <br/>
 
-flume-agent.source.type=avro
-flume-agent.source.bind=0.0.0.0
-flume-agent.source.port=10001
+flume-agent.source.type=avro <br/>
+flume-agent.source.bind=0.0.0.0 <br/>
+flume-agent.source.port=10001 <br/>
 
 
 Storm bolt as Flume Avro RPC Sink
@@ -126,30 +126,30 @@ AvroSinkBolt has been created as a bolt to connect the storm to flume agents or 
     <tr>
       <td>client.type</td>
       <td>
-        <pre>--</pre>
+        --
       </td>
       <td>
-        <pre>DEFAULT - NettyAvroRpcClient will be used</pre>
-        <pre>DEFAULT_FAILOVER - FailoverRpcClient will be used</pre>
-        <pre>DEFAULT_LOADBALANCE - LoadBalancingRpcClient will be used</pre>
+        <p>DEFAULT - NettyAvroRpcClient will be used</p>
+        <p>DEFAULT_FAILOVER - FailoverRpcClient will be used</p>
+        <p>DEFAULT_LOADBALANCE - LoadBalancingRpcClient will be used</p>
       </td>
     </tr>
   </tbody>
 </table>
 
 Examples:
-1) #Bolt to forward messages to flume agents with round_robin load balancing policy
-flume-hdfs.client.type=default_loadbalance
-flume-hdfs.hosts=h1 h2
-flume-hdfs.hosts.h1=myhdfssinkhost1:10002
-flume-hdfs.hosts.h2=myhdfssinkhost2:10002
+1) #Bolt to forward messages to flume agents with round_robin load balancing policy <br/>
+flume-hdfs.client.type=default_loadbalance <br/>
+flume-hdfs.hosts=h1 h2 <br/>
+flume-hdfs.hosts.h1=myhdfssinkhost1:10002 <br/>
+flume-hdfs.hosts.h2=myhdfssinkhost2:10002 <br/>
  
-2) #load balancing policy. default is round_robin
-flume-sql.client.type=default_loadbalance
-flume-sql.host-selector=random
-flume-sql.hosts=h1 h2
-flume-sql.hosts.h1=mysqlsinkhost1:10001
-flume-sql.hosts.h2=mysqlsinkhost2:10001
+2) #load balancing policy. default is round_robin <br/>
+flume-sql.client.type=default_loadbalance <br/>
+flume-sql.host-selector=random <br/>
+flume-sql.hosts=h1 h2 <br/>
+flume-sql.hosts.h1=mysqlsinkhost1:10001 <br/>
+flume-sql.hosts.h2=mysqlsinkhost2:10001 <br/>
 
 
 
