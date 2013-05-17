@@ -81,8 +81,8 @@ Following describes various properties supported in the spout
 </table>
 
 <p>For additional channel properties refer:</p>
-http://flume.apache.org/FlumeUserGuide.html#file-channel
-http://flume.apache.org/FlumeUserGuide.html#memory-channel
+<p>http://flume.apache.org/FlumeUserGuide.html#file-channel</p>
+<p>http://flume.apache.org/FlumeUserGuide.html#memory-channel</p>
 
 
 <p>Example configuration:</p>
@@ -137,7 +137,7 @@ AvroSinkBolt has been created as a bolt to connect the storm to flume agents or 
   </tbody>
 </table>
 
-Examples:
+Examples:<br/>
 1) #Bolt to forward messages to flume agents with round_robin load balancing policy <br/>
 flume-hdfs.client.type=default_loadbalance <br/>
 flume-hdfs.hosts=h1 h2 <br/>
