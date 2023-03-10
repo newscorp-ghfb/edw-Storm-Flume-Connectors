@@ -10,7 +10,7 @@
     <url>http://maven.apache.org</url>
 	<properties>
 		<flume.version>1.3.0-cdh4.2.1</flume.version>
-		<hadoop.version>2.0.0-cdh4.2.1</hadoop.version>
+		<hadoop.version>3.2.3</hadoop.version>
 	</properties>
 
     <scm>
